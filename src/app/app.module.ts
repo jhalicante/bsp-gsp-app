@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
-import { CalendarComponent } from "ap-angular2-fullcalendar/src/calendar/calendar";
+// import { CalendarComponent } from "ap-angular2-fullcalendar/src/calendar/calendar";
+// import {CalendarComponent} from "ap-angular2-fullcalendar";
+
+import { CalendarModule } from 'ap-angular2-fullcalendar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -20,9 +23,6 @@ import { PaymentPage } from '../pages/pages/payment/payment';
 import { TeacherListPage } from '../pages/pages/teacher-list/teacher-list';
 import { TeacherPaymentPage } from '../pages/pages/teacher-payment/teacher-payment';
 import { SchoolListPage } from '../pages/pages/school-list/school-list';
-
-
-
 
 // Providers
 import { AlertProvider } from '../services/alert';
@@ -51,9 +51,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SchoolListPage,
     TeacherPaymentPage,
 
-    CalendarComponent
+    // CalendarComponent
   ],
   imports: [
+    CalendarModule,
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -74,6 +75,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TeacherListPage,
     SchoolListPage,
     TeacherPaymentPage,
+
+    // CalendarComponent
   ],
   providers: [
     StatusBar,

@@ -4,6 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <angular2-fullcalendar id="myCalendar" [options]="calendarOptions"></angular2-fullcalendar>
+<ion-content padding *ngIf="show">
+    <br><br><br>
+    <angular2-fullcalendar id="myCalendar" [options]="calendarOptions" (initialized)="onCalendarInit($event)"></angular2-fullcalendar>
 </ion-content>

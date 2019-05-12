@@ -70,6 +70,7 @@ export class AddMembersPage {
     };
 
     this.alert.showLoading('Please wait...');
+    
     this.api.registerStudent(formData).subscribe( ( res : any) => {
         console.log(res);
         this.alert.hideLoading();

@@ -16,10 +16,10 @@ export class ApiProvider {
         public http: Http) {
         
         // PROD API https://bsp-gsp.herokuapp.com
-        // this.apiURL = localStorage.getItem('ip_address')  + '/api/v1';
+        this.apiURL = localStorage.getItem('ip_address')  + '/api/v1';
 
         // DEV API http://localhost:8888
-        this.apiURL = localStorage.getItem('ip_address') +'/bsp-gsp-web/api/v1';
+        // this.apiURL = localStorage.getItem('ip_address') +'/bsp-gsp-web/api/v1';
     }
   
     public signin(data : any) {
