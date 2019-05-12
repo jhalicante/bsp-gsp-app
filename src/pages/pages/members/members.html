@@ -11,14 +11,18 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title  *ngIf="role == 'admin' ">Members</ion-title>
-    <ion-title  *ngIf="role == 'teacher' ">Students</ion-title>
+    <ion-title  *ngIf="role == 'teacher' ">Register Students</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let i of studentsList" (click)="viewStudentDetails(i)">
+      {{ i.fullname }} - {{ i.status }}
+    </button>  
+  </ion-list>
 
   <ion-fab right bottom *ngIf="role == 'teacher' ">
     <button ion-fab color="themeColor"><ion-icon name="ios-arrow-dropup"></ion-icon></button>

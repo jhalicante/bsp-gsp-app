@@ -61,4 +61,125 @@ export class ApiProvider {
         });
         return observable;
     } 
+
+    public getAllStudents(teacher_id : string) {
+
+        let url : string;
+
+        if(localStorage.getItem('role') == 'admin') {
+            url = this.apiURL + '/m/get-all-student';
+        }
+        else {
+            url = this.apiURL + '/m/get-all-student?user_id='+teacher_id;
+        }
+
+        let observable = new Observable(observer => {
+            this.http.get(url)
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All School', 'Connection failed!');
+            });
+        });
+        return observable;
+    } 
+    
+    public getAllSMS() {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-all-sms')
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All SMS', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public getAllEvents() {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-all-events')
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All Activity', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public getAllLocation() {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-all-locations')
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All Location', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public getPayment() {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-payment')
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All Payment', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public teacherList() {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-all-teachers')
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get All Teachers', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public registerStudent(data : any) {
+        let observable = new Observable(observer => {
+            this.http.post(this.apiURL + '/m/register-student', JSON.stringify(data))
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                this.alert.showAlert('Register Student', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
+
+    public getTeacherPayment(teacher_id : string) {
+        let observable = new Observable(observer => {
+            this.http.get( this.apiURL + '/m/get-teacher-payment?teacher-id='+teacher_id)
+            .map(res => res.json())
+            .subscribe(data => {
+                observer.next(data);
+            }, error => {
+                console.log(error);
+                this.alert.showAlert('Get Teacher Payment', 'Connection failed!');
+            });
+        });
+        return observable;
+    }
 }

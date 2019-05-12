@@ -12,6 +12,10 @@ import { ActivityPage } from '../pages/pages/activity/activity';
 import { LocationPage } from '../pages/pages/location/location';
 import { PaymentPage } from '../pages/pages/payment/payment';
 import { TeacherListPage } from '../pages/pages/teacher-list/teacher-list';
+import { SchoolListPage } from '../pages/pages/school-list/school-list';
+import { TeacherPaymentPage } from '../pages/pages/teacher-payment/teacher-payment';
+
+
 
 
 
@@ -58,8 +62,9 @@ export class MyApp {
         { title: 'SMS', component: SmsPage },
         { title: 'Activity', component: ActivityPage },
         { title: 'Location', component: LocationPage },
-        { title: 'Payment', component: PaymentPage },
-        { title: 'Teacher', component: TeacherListPage }
+        { title: 'Invoice', component: PaymentPage },
+        { title: 'Teacher List', component: TeacherListPage },
+        { title: 'School List', component: SchoolListPage }
       ];
     }
 
@@ -71,6 +76,7 @@ export class MyApp {
         { title: 'Student List', component: MembersPage },
         { title: 'Activity', component: ActivityPage },
         { title: 'Location', component: LocationPage },
+        { title: 'Invoice List', component: TeacherPaymentPage },
       ];
     }
     
@@ -89,15 +95,15 @@ export class MyApp {
       this.splashScreen.hide();
 
       // DEV
-      localStorage.setItem('ip_address', 'http://localhost:8888');
+      // localStorage.setItem('ip_address', 'http://localhost:8888');
       // PROD
-      // localStorage.setItem('ip_address', 'https://bsp-gsp.herokuapp.com');
+      localStorage.setItem('ip_address', 'https://bsp-gsp.herokuapp.com');
 
     });
   }
 
   openPage(page) {
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 
   logout() {

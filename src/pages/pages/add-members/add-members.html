@@ -1,24 +1,17 @@
-<!--
-  Generated template for the AddMembersPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="themeColor">
     <ion-title>Add Member</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
   <ion-list>
+
     <ion-item>
       <ion-label>School</ion-label>
-      <ion-select [(ngModel)]="school">
-        <ion-option value="snes">Name</ion-option>
+      <ion-select [(ngModel)]="school_id">
+        <ion-option *ngFor="let school of schoolList;" value="{{school.school_id}}"> {{school.name}} </ion-option>
       </ion-select>
     </ion-item>
     
@@ -37,7 +30,6 @@
       <ion-input [(ngModel)]="lname" type="text"></ion-input>
     </ion-item>
 
-
     <ion-item>
       <ion-label>Select Gender</ion-label>
       <ion-select [(ngModel)]="gender">
@@ -53,11 +45,9 @@
       </ion-select>
     </ion-item>
 
-
-
     <ion-item>
       <ion-label>Select Scout</ion-label>
-      <ion-select [(ngModel)]="batch">
+      <ion-select [(ngModel)]="scout">
         <ion-option value="cabs scout">cabs scout</ion-option>
         <ion-option value="bsp">bsp</ion-option>
         <ion-option value="gsp">gsp</ion-option>
@@ -66,14 +56,46 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Middle Name</ion-label>
-      <ion-input [(ngModel)]="mname" type="text"></ion-input>
+      <ion-label floating>Amount Payed</ion-label>
+      <ion-input [(ngModel)]="amount" type="number"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Middle Name</ion-label>
-      <ion-input [(ngModel)]="mname" type="text"></ion-input>
+      <ion-label floating>Grade</ion-label>
+      <ion-input [(ngModel)]="grade" type="number"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input [(ngModel)]="address" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>Birth Date</ion-label>
+      <ion-input [(ngModel)]="bdate" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Age</ion-label>
+      <ion-input [(ngModel)]="age" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Religion</ion-label>
+      <ion-input [(ngModel)]="religion" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Guardian Name</ion-label>
+      <ion-input [(ngModel)]="guard_name" type="text"></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label floating>Guardian No. eg:(6391234567890)</ion-label>
+      <ion-input [(ngModel)]="guard_name_no" type="text"></ion-input>
+    </ion-item>
   </ion-list>
+  <br/>
+  <button ion-button color="themeColor" (click)="registerStudent()" class="s-button" full block>Register Student</button>
+  <br><br>
 </ion-content>

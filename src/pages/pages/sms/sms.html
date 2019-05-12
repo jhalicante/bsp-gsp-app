@@ -1,18 +1,16 @@
-<!--
-  Generated template for the SmsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>sms</ion-title>
+  <ion-navbar color="themeColor">
+    <ion-title>SMS</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let i of smsList">
+      Message: {{ i.message }} <br> 
+      Reciever No.: {{ i.rec_no }} <br> 
+      Send Date: {{ i.send_date }}<br> 
+      Status: {{ i.status }}<br> 
+    </button>
+  </ion-list>
 </ion-content>

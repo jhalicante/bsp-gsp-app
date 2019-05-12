@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ApiProvider } from '../../services/api';
 import { AlertProvider } from '../../services/alert';
-import { MembersPage } from '../pages/members/members';
 
 @IonicPage()
 @Component({

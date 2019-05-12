@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar color="themeColor">
+    <ion-title>School List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let i of schoolList">
+    <ion-card-header>
+      <b>School Name: {{i.name}}</b>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

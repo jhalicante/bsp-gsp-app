@@ -6,13 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>location</ion-title>
+  <ion-navbar color="themeColor">
+    <ion-title>Location</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card *ngFor="let i of locationList">
+    <ion-card-header>
+      {{i.name}}
+    </ion-card-header>
+    <ion-card-content>
+      Start: {{i.start_date_time}}<br>
+      Ent: {{i.end_date_time}}<br>
+      Place: {{i.place}}<br>
+      Address: {{i.address}}<br>
+      <br>
+      <a href="https://maps.google.com/?q={{i.latitude}},{{i.longitude}}">Open In Google Map</a>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

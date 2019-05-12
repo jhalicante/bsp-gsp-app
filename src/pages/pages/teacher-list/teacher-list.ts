@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TeacherListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from '../../../services/api';
+import { AlertProvider } from '../../../services/alert';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TeacherListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public teachersList : any[] = [];
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public api : ApiProvider,
+    public alert : AlertProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeacherListPage');
+    this.loadTeacher();
+  }
+
+  loadTeacher() {
+    this.api.teacherList().subscribe( (res: any) => {
+      console.log(res);
+      if(res.errorCode == 0) {
+        this.teachersList = res.responseData;
+      }
+    });
   }
 
 }

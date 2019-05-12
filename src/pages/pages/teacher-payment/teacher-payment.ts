@@ -6,12 +6,12 @@ import { AlertProvider } from '../../../services/alert';
 
 @IonicPage()
 @Component({
-  selector: 'page-payment',
-  templateUrl: 'payment.html',
+  selector: 'page-teacher-payment',
+  templateUrl: 'teacher-payment.html',
 })
-export class PaymentPage {
+export class TeacherPaymentPage {
 
-  public paymentList : any[] = [];
+  public invoiceList : any[] = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -21,17 +21,17 @@ export class PaymentPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PaymentPage');
-    this.loadPayment();
+    this.loadInvoiceList();
   }
 
-  loadPayment() {
-    this.api.getPayment().subscribe( (res : any) => {
+  loadInvoiceList() {
+    let teacher_id = localStorage.getItem('user_id');
+    this.api.getTeacherPayment(teacher_id).subscribe( (res: any) => {
       console.log(res);
       if(res.errorCode == 0) {
-        this.paymentList = res.responseData;
+        this.invoiceList = res.responseData;
       }
-    })
+    });
   }
 
 }

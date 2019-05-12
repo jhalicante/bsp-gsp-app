@@ -1,18 +1,17 @@
 <ion-header>
   <ion-navbar color="themeColor">
-    <ion-title>Teacher List</ion-title>
+    <ion-title>Teacher Invoice List</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let i of teachersList">
+  <ion-card *ngFor="let i of invoiceList">
     <ion-card-header>
-      <b>Fullname: {{i.fullname}}</b>
+      <b>Amouunt: {{i.amount}}</b>
     </ion-card-header>
     <ion-card-content>
       Status: {{i.status}}<br>
-      Date Registered: {{i.created_date}}<br>
-      Mobile No.: {{i.mobile_no}}<br>
+      Invioce Date {{i.payed_date}}<br>
     </ion-card-content>
   </ion-card>
 </ion-content>
