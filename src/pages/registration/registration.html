@@ -6,13 +6,43 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>registration</ion-title>
+  <ion-navbar color="themeColor">
+    <ion-title>Register Teacher</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+  <ion-list>
+    
+    <ion-item>
+      <ion-label floating>Full Name</ion-label>
+      <ion-input [(ngModel)]="fullname" type="text"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Select School</ion-label>
+      <ion-select [(ngModel)]="school">
+        <ion-option *ngFor="let school of schoolList;" value="{{school.school_id}}"> {{school.name}} </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Phone Number: eg: (91234567890)</ion-label>
+      <ion-input [(ngModel)]="phone" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <br>
+  <button ion-button color="themeColor" (click)="register()" small full block class="s-button" >Register</button>
 </ion-content>

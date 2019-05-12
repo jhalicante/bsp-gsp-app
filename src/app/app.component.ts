@@ -30,6 +30,17 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
+    this.loadNavigations();
+
+    setInterval( () => {
+      if( localStorage.getItem('user_id') != null ) {
+        this.loadNavigations();
+      }
+    }, 1000);
+
+  }
+
+  loadNavigations() {
     if(localStorage.getItem('fullname') != null ) {
       this.fullname = localStorage.getItem('fullname');
     }
@@ -63,7 +74,6 @@ export class MyApp {
       ];
     }
     
-
   }
 
   initializeApp() {
@@ -77,12 +87,23 @@ export class MyApp {
       // set status bar to white
       this.statusBar.backgroundColorByHexString('#32db64');
       this.splashScreen.hide();
+
+      // DEV
+      localStorage.setItem('ip_address', 'http://localhost:8888');
+      // PROD
+      // localStorage.setItem('ip_address', 'https://bsp-gsp.herokuapp.com');
+
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    localStorage.removeItem('fullname');
+    localStorage.removeItem('role');
+    localStorage.removeItem('user_id');
+    this.nav.setRoot(LoginPage);
   }
 }

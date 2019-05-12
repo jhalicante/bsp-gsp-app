@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -17,6 +18,9 @@ import { PaymentPage } from '../pages/pages/payment/payment';
 import { TeacherListPage } from '../pages/pages/teacher-list/teacher-list';
 
 
+// Providers
+import { AlertProvider } from '../services/alert';
+import { ApiProvider } from '../services/api';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -38,6 +42,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TeacherListPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -58,7 +63,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AlertProvider,
+    ApiProvider
   ]
 })
 export class AppModule {}

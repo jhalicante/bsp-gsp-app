@@ -8,15 +8,15 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
   </ion-list>
   <br>
-  <button ion-button color="themeColor" small full block class="s-button" >Login</button>
+  <button ion-button color="themeColor" (click)="login()" small full block class="s-button" >Login</button>
   <br>
-  <button ion-button clear block>Register</button>
+  <button ion-button clear color="themeColor" block (click)="register()">Create teacher account</button>
 </ion-content>
